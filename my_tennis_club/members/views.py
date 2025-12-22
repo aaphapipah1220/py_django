@@ -1,9 +1,25 @@
-from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from django.shortcuts import render
+from .models import Member #db
+
+def home(request):
+    return render(request, "home.html")
 
 def members(request):
-    templates = loader.get_template('myfirst.html')
-    return HttpResponse(templates.render())
+    mymembers = Member.objects.all().values()
+    templates = loader.get_template('all_members.html')
+    context = {
+        'mymembers': mymembers,
+    }
+    return HttpResponse(templates.render(context, request))
+
+def details(request, id):
+    mymember = Member.objects.get(id=id)
+    template = loader.get_template("details.html")
+    context = {
+        'mymember': mymember,
+    }
+    return HttpResponse(template.render(context, request))
 
 # Create your views here.
