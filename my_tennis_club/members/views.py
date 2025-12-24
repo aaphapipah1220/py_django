@@ -5,7 +5,10 @@ from .models import Member #db
 
 def main(request):
     template = loader.get_template("main.html")
-    return HttpResponse(template.render())
+    context = {
+        'username': 'Aap',
+    }
+    return HttpResponse(template.render(context, request))
 
 def members(request):
     mymembers = Member.objects.all().values()
@@ -23,4 +26,10 @@ def details(request, id):
     }
     return HttpResponse(template.render(context, request))
 
-# Create your views here.
+def testing(request):
+    mymember = Member.objects.all().values()
+    template = loader.get_template("template.html")
+    context = {
+        mymember : 'mymember',
+    }
+    return HttpResponse(template.render(context, request))

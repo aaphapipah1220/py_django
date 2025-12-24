@@ -21,5 +21,6 @@ from members import views
 urlpatterns = [
     path("", views.main, name="main"),
     path('members/', include('members.urls')),
+    path('testing/', views.testing, name="testing"),
     path('admin/', admin.site.urls),
 ]

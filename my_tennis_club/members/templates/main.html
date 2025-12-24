@@ -9,11 +9,16 @@
     {% extends "master.html" %}
 
     {% block title %}
-    <h1>Welcome to my first project of django</h1>
     {% endblock%}
 
     {% block content %}
+    <h1>Welcome to my first project of django, {{ username }}</h1>
+
+    {% with greeting='Hi'%}
+    <h2>{{greeting}} {{username}}</h2>
+    {% endwith %}
     <p><a href="/members/">Members</a></p>
+    <p><a href="/testing/">Testing</a></p>
     {% endblock %}
 </body>
 </html>
