@@ -7,9 +7,17 @@
 </head>
 <body>
     <ul>
-        {% for member in mymember %}
+        {% for member in mymembers %}
         <li>{{ member.firstname }}</li>
+        {% empty %}
+        <li>Data Kosong</li>
         {% endfor %}
     </ul>
+
+    {% if fruitA is fruitB %}
+    <h1>Halo</h1>
+    {% else %}
+    <h1>Bye</h1>
+    {% endif %}
 </body>
 </html>
