@@ -3,8 +3,9 @@ from django.template import loader
 from django.shortcuts import render
 from .models import Member #db
 
-def home(request):
-    return render(request, "home.html")
+def main(request):
+    template = loader.get_template("main.html")
+    return HttpResponse(template.render())
 
 def members(request):
     mymembers = Member.objects.all().values()

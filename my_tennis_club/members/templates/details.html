@@ -6,11 +6,15 @@
     <title>Details Member</title>
 </head>
 <body>
+    {% block title %}
     <h1>{{mymember.firstname}} {{mymember.lastname}}</h1>
+    {% endblock %}
 
+    {% block content %}
     <p>Phone: {{mymember.phone}}</p>
     <p>Joined date: {{mymember.joined_date}}</p>
 
     <p><a href="/members/">Back to members</a></p>
+    {% endblock %}
 </body>
 </html>
