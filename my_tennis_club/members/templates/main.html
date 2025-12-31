@@ -12,6 +12,8 @@
     {% endblock%}
 
     {% block content %}
+    {% include 'mymenu.html' with me="Aap" %}
+
     <h1>Welcome to my first project of django, {{ username }}</h1>
 
     {% with greeting='Hi'%}
@@ -19,6 +21,8 @@
     {% endwith %}
     <p><a href="/members/">Members</a></p>
     <p><a href="/testing/">Testing</a></p>
+
+    {% include 'footer.html' %}
     {% endblock %}
 </body>
 </html>

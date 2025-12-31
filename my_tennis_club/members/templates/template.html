@@ -6,9 +6,15 @@
     <title>testing</title>
 </head>
 <body>
+    {% comment %}
+    <h1>This is for comment in django</h1>
+    {% endcomment %}
+
+    <h1>This is comment to {# this is easier comment #}</h1>
+
     <ul>
         {% for member in mymembers %}
-        <li>{{ member.firstname }}</li>
+        <li>{{ member.firstname }} {{ member.lastname }}</li>
         {% empty %}
         <li>Data Kosong</li>
         {% endfor %}
