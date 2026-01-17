@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All members</title>
-</head>
-<body>
+
     {% extends "master.html"%}
 
     {% block title %}
-    <h1>My tennis club</h1>
+    My tennis club
     {% endblock %}
 
     {% block content %}
@@ -22,6 +15,6 @@
             <li><a href="{%url 'details' member.id%}">{{member.firstname}} {{member.lastname}}</a></li>
         {% endfor %}
     </ul>
+
+    {% include 'footer.html' %}
     {% endblock %}
-</body>
-</html>
