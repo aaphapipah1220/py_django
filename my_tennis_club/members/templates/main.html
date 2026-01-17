@@ -1,4 +1,9 @@
 {% extends "master.html" %}
+{% load static %}
+
+{% block extracss %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+{% endblock %}
 
 {% block title %}
 Main menu of tennis club 
@@ -7,7 +12,7 @@ Main menu of tennis club
 {% block content %}
 {% include 'mymenu.html' with me="Aap" %}
 
-    <h1>Welcome to my first project of django, {{ username }}</h1>
+    <h1 class="welcome">Welcome to my first project of django, {{ username }}</h1>
 
 {% with greeting='Hi'%}
     <h2>{{greeting}} {{username}}</h2>

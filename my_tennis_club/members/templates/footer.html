@@ -1,4 +1,9 @@
 {% extends 'master.html' %}
+{% load static %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+{% endblock %}
 
 {% block content %}
     <footer>Created by Aap</footer>
