@@ -1,0 +1,109 @@
+{% extends 'master.html' %}
+{% block title %}
+Input New Leads
+{% endblock %}
+
+{% block content %}
+    <h1> Leads > Input New Leads</h1>
+
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <label for="">Leads In Period</label> <br>
+        <input type="date" name="leads_in_period"> 
+        
+        <br><br>
+
+        <label for="">Leads Source</label> <br>
+        <select name="lead_source_id" id="" required>
+            <option value="">Options</option>
+            {% for list_sources in lead_sources %}
+                <option value="{{ list_sources.id }}">{{ list_sources.name }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+
+        <label for="">Detail Channel</label> <br>
+        <select name="detail_channel_id" id="" required> <br> <br>
+            <option value="">Options</option>
+            {% for list_channel in detail_channels %}
+                <option value="{{ list_channel.id }}">{{ list_channel.name }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+
+        <label for="">Parents Name</label> <br>
+        <input type="text" name="parents_name">
+
+        <br><br>
+
+        <label for="">Phone Number of Parents</label> <br>
+        <input type="text" name="phone_number_of_parents">
+
+        <br><br>
+
+        <label for="">Email</label> <br>
+        <input type="email" name="email">
+
+        <br><br>
+
+        <label for="">Student Name</label> <br>
+        <input type="text" name="student_name">
+
+        <br><br>
+
+        <label for="">Student Aged</label> <br>
+        <input type="number" name="student_aged">
+
+        <br><br>
+
+        <label for="">Date Of Birth</label> <br>
+        <input type="date" name="date_of_birth">
+
+        <br><br>
+
+        <label for="">Address</label> <br>
+        <textarea name="address" id="" rows="5"></textarea>
+
+        <br><br>
+
+        <label for="">School</label> <br>
+        <input type="text" name="school">
+
+        <br><br>
+
+        <label for="">Customer Status</label> <br>
+        <select name="customer_status_id" id="" required> <br> <br>
+            <option value="">Options</option>
+            {% for list_customer in customers_status %}
+                <option value="{{ list_customer.id }}">{{ list_customer.name }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+
+        <label for="">Program</label> <br>
+        <select name="program_id" id="" required> <br> <br>
+            <option value="">Options</option>
+            {% for list_program in programs %}
+                <option value="{{ list_program.id }}">{{ list_program.name }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+
+        <label for="">PIC / SA</label> <br>
+        <select name="student_advisor_id" id="" required> <br> <br>
+            <option value="">Options</option>
+            {% for list_sa in student_advisor %}
+                <option value="{{ list_sa.id }}">{{ list_sa.name }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+        <button type="submit">SAVE</button>
+    </form>
+
+{% endblock %}

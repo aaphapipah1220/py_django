@@ -1,0 +1,114 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}
+Leads > Input Trial Class
+{% endblock %}
+
+{% block content %}
+<h1>Leads > Input Trial Class</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    <label for="">Student Name</label>
+    <select id="lead_select" name="lead_id" required>
+        <option value="">Choose Student</option>
+            {% for lead in leads %}
+                <option value="{{ lead.id }}">{{ lead.student_name }}</option>
+            {% endfor %}
+    </select>
+
+    <br><br>
+
+    <label for="">Student Aged</label>
+    <input type="text" id="student_aged" readonly>
+
+    <br><br>
+
+    <label for="">School</label>
+    <input type="text" id="school" readonly>
+
+    <br><br>
+
+    <label for="">Detail Channel</label>
+    <input type="text" id="detail_channel" readonly>
+
+    <br><br>
+
+    <label for="">Coding Experience</label>
+    <textarea name="coding_experience" id=""></textarea>
+
+    <br><br>
+
+    <label for="">Purpose</label>
+    <textarea name="purpose" id=""></textarea>
+
+    <br><br>
+
+    <label for="">Date & Time</label> <br>
+    <input type="datetime-local" name="date_and_time" id="">
+
+    <br><br>
+
+    <label for="">Trial Location</label> <br>
+        <select name="location_id" id="" required> <br> <br>
+            <option value="">Options</option>
+            {% for list_location in trial_location %}
+                <option value="{{ list_location.id }}">{{ list_location.name }}</option>
+            {% endfor %}
+        </select>
+
+    <br><br>
+
+    <label for="">Teacher</label> <br>
+        <select name="teacher_id" id="" required> <br> <br>
+            <option value="">Options</option>
+            {% for list_teacher in teacher_trial %}
+                <option value="{{ list_teacher.id }}">{{ list_teacher.name }}</option>
+            {% endfor %}
+        </select>
+
+    <br><br>
+
+    <label for="">Level</label> <br>
+        <select name="level_id" id="" required> <br> <br>
+            <option value="">Options</option>
+            {% for list_level in level_trial %}
+                <option value="{{ list_level.id }}">{{ list_level.name }}</option>
+            {% endfor %}
+        </select>
+
+    <br><br>
+
+    <label for="">Program</label> <br>
+        <select name="program_id" id="" required> <br> <br>
+            <option value="">Options</option>
+            {% for list_program in program_trial %}
+                <option value="{{ list_program.id }}">{{ list_program.name }}</option>
+            {% endfor %}
+        </select>
+
+    <br><br>
+
+    <label for="">Class Type</label> <br>
+        <select name="class_type_id" id="" required> <br> <br>
+            <option value="">Options</option>
+            {% for list_class_type in class_type %}
+                <option value="{{ list_class_type.id }}">{{ list_class_type.name }}</option>
+            {% endfor %}
+        </select>
+
+    <br><br>
+
+    <label for="">Room / Link</label> <br>
+    <input type="text" name="room">
+
+    <br><br>
+
+    <button type="submit">SUBMIT</button>
+</form>
+
+<script src="{% static 'js/trial.js' %}"></script>
+
+{% endblock %}
